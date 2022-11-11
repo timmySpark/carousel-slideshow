@@ -1,30 +1,39 @@
-let slides = document.queryselectorall('.slide')
-let prev = document.queryselector('prev')
-let next = document.queryselector('next')
-let letslide;
+let slides = document.querySelectorAll('.slide')
+let prev = document.querySelector('.prev')
+let next = document.querySelector('.next')
 
-let position = 1;
+let position = 0;
+let maxSlide = slides.length - 1;
 
-function letSlide(len) {
-  if (len>slides.length) {
-    position = 1
-  }
-  else if (len < slides.length) {
-    position = len
-  }
 
-  for (let i = 0; i < slides.length; i++) {
-    slides[i].style.display="None"
+function brain(eqPos, pos, state) {
+  if (position === eqPos) {
+    position = pos;
+    for (let i = 0; i < slides.length; i++) {
+      slides[i].style.display="none"
+    }
+    slides[position].style.display='block'
+  } 
+  else {
+    if (state == 'next') {
+      position++; 
+    }
+    else{
+      position--
+    }
+    for (let i = 0; i < slides.length; i++) {
+      slides[i].style.display="none"
+    }
+
+    slides[position].style.display='block'
   }
 }
 
-prev.addEventListener("click" , function(){
-  letSlide(-1)
-  console.log('back');
-});
-next.addEventListener("click" , function(){
-  letSlide(1)
-  console.log('front');
-});
+next.addEventListener("click", function () {
+  brain(eqPos=maxSlide, pos=0, state='next')
+})
 
-letSlide();
+
+prev.addEventListener("click", function () {
+  brain(eqPos=0, pos=maxSlide, state='prev')
+})
