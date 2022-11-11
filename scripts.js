@@ -15,12 +15,9 @@ function brain(eqPos, pos, state) {
     slides[position].style.display='block'
   } 
   else {
-    if (state == 'next') {
-      position++; 
-    }
-    else{
-      position--
-    }
+    if (state == 'next') {position++; }
+    else{position--}
+    
     for (let i = 0; i < slides.length; i++) {
       slides[i].style.display="none"
     }
