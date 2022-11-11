@@ -34,6 +34,7 @@ body{background-color:gray;}
   top: 5%;
   left: 4%;
   border-radius: 50%;
+  background-color: gray;
   font-weight: bold;
   padding: 8px 12px;
   position: absolute;
