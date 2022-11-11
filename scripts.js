@@ -15,7 +15,7 @@ function mouseHover() {
 imgSlide[position].addEventListener("mouseover", mouseHover);
 
 function brain(index, pos, state) {
-  if (position === eqPos) {
+  if (position === index) {
     position = pos;
     for (let i = 0; i < slides.length; i++) {
       slides[i].style.display="none"
