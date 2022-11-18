@@ -22,7 +22,7 @@ slides.forEach(item => { item.addEventListener("mouseout", mouseOut)});
 
 prev.addEventListener("mouseover", mouseHover)
 
-next.addEventListener("mouseover", mouseOut)
+next.addEventListener("mouseover", mouseHover)
 
 function brain(index, pos, state) {
   if (position === index) {
