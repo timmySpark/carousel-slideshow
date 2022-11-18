@@ -7,18 +7,28 @@ let position = 0;
 let maxSlide = slides.length - 1;
 
 function mouseHover() {
-  next.style.display='inline'
-  prev.style.display='inline'
+  next.style.display='block'
+  prev.style.display='block'
 }
 
+function mouseOut() {
+  next.style.display='none'
+  prev.style.display='none'
+}
 
-imgSlide[position].addEventListener("mouseover", mouseHover);
+slides.forEach(item => { item.addEventListener("mouseover", mouseHover)});
+
+slides.forEach(item => { item.addEventListener("mouseout", mouseOut)});
+
+prev.addEventListener("mouseover", mouseHover)
+
+next.addEventListener("mouseover", mouseOut)
 
 function brain(index, pos, state) {
   if (position === index) {
-    position = pos;
-    for (let i = 0; i < slides.length; i++) {
-      slides[i].style.display="none"
+      position = pos;
+      for (let i = 0; i < slides.length; i++) {
+        slides[i].style.display="none"
     }
     slides[position].style.display='block'
   } 
